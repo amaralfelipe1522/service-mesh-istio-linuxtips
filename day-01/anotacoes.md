@@ -6,8 +6,8 @@ Uma service mesh é uma camada de infraestrutura incorporada a uma aplicação q
 ## Istio
 Conjunto de ferramentas Open Sources que cobre os pilares do Service Mesh.
 
-## Envoy
-Camada proxy presente no Pod da aplicação que irá interceptar as comunicações de entrada e saída para cada micro serviço e que são armazenadas no Control Plane.
+## Envoy (Sidecar)
+Camada proxy presente no Pod da aplicação que irá interceptar as comunicações de entrada (ingress) e saída (egress) para cada micro serviço e que são armazenadas no Control Plane.
 
 ## Control Plane - Istiod
 Camada que armazena e gerencia as informações das comunicações ocorridas entre os micro serviços e a partir disso, disponibiliza-las para outras ferramentas, como por exemplo Grafana e Kiali. É composto por:
@@ -15,3 +15,7 @@ Camada que armazena e gerencia as informações das comunicações ocorridas ent
 - Citadel;
 - Gallery.
 
+## Arquiterura do Exemplo BookInfo
+![Book-info Sample](../assets/bookinfo-sample.png)
+
+## Virtual Service 
