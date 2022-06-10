@@ -4,3 +4,5 @@
 ```
 istioctl analyze
 ```
+
+kubectl rollout restart deployment istio-egressgateway -n=istio-system

@@ -18,4 +18,8 @@ Camada que armazena e gerencia as informações das comunicações ocorridas ent
 ## Arquiterura do Exemplo BookInfo
 ![Book-info Sample](../assets/bookinfo-sample.png)
 
-## Virtual Service 
+## CRD (Custom Resources Definition)
+É um recurso que estende a API do Kubernetes, sendo possível assim definir seu próprio objeto Kind. No exemplo do bookinfo, foram utilizados dois CRD:
+- Virtual Service;
+- Gateway.
+
