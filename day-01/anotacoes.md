@@ -23,3 +23,7 @@ Camada que armazena e gerencia as informações das comunicações ocorridas ent
 - Virtual Service;
 - Gateway.
 
+## Traffic Management (editando o Virtual Service) 
+- Fault Injection (exemplo injetando delay na comunicação entre os serviços)
+- Traffic Shifting (balanceamento do trafico de dados)
+- Request Routing (exemplo usando o endd-user nos headers)

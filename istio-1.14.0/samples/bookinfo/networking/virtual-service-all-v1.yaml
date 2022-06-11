@@ -19,6 +19,10 @@ spec:
   hosts:
   - reviews
   http:
+  # - match:
+  #   - headers:
+  #       end-user:
+  #         exact: giropops
   - route:
     - destination:
         host: reviews
