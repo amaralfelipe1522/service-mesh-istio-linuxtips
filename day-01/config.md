@@ -73,3 +73,16 @@ istioctl dashboard (grafana, kiali, prometheus ou jaeger)
 ```
 for i in $(seq 1 100); do curl -s -o /dev/null "http://$GATEWAY_URL/productpage"; done
 ```
+
+## Instalando Virtual Service e Destination Rules
+```
+kubectl apply -f istio-1.14.0/samples/bookinfo/networking/virtual-service-all-v1.yaml
+
+kubectl get virtualservice
+
+kubectl apply -f istio-1.14.0/samples/bookinfo/networking/destination-rule-all.yaml
+
+kubectl get destinationrule
+```
+
+> Foi necessário alterar o arquivo *virtual-service-all-v1.yaml* para que a Destination Rule acesse as outras versões do serviço de Reviews do exemplo do BookInfo e saiba qual o "peso" da distribuição de cargas para cada um

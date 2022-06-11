@@ -23,6 +23,16 @@ spec:
     - destination:
         host: reviews
         subset: v1
+      weight: 20
+        # Editando para que o Destination Rule acesse as outras versões
+    - destination:
+        host: reviews
+        subset: v2
+      weight: 40
+    - destination:
+        host: reviews
+        subset: v3
+      weight: 40
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
