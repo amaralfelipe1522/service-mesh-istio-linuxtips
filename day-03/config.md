@@ -11,7 +11,7 @@ kubectl create ns ns-teste-3
 - Aplicar apenas em 2 namespaces as labels para que os sidecars (envoys)
 ```
 kubectl label namespace ns-teste-1 istio-injection=enabled
-kubectl label namespace ns-teste-1 istio-injection=enabled
+kubectl label namespace ns-teste-2 istio-injection=enabled
 ```
 - Inicializa o exemplo HTTPBIN nas 3 namespaces
 ```
