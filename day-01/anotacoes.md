@@ -27,3 +27,13 @@ Camada que armazena e gerencia as informações das comunicações ocorridas ent
 - Fault Injection (exemplo injetando delay na comunicação entre os serviços)
 - Traffic Shifting (balanceamento do trafico de dados)
 - Request Routing (exemplo usando o endd-user nos headers)
+
+# Politicas e Segurança
+
+Por padrão o Istio traz as aplicações facilidades como:
+- Defender contra ataques man-in-the-middle, por conta do tráfico ser encriptado;
+- Fornecer um serviço de controle de acesso flexível;
+- Ferramentas de auditorias.
+
+## Mutual TLS
+Comunicação segura de ponta a ponta entre os microsserviços de forma encriptada.
