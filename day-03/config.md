@@ -29,6 +29,8 @@ kubectl apply -f istio-1.14.0/samples/sleep/sleep.yaml -n ns-teste-3
 ```
 kubectl exec -ti -n ns-teste-2 sleep-698cfc4445-tvgpx -- curl http://httpbin.ns-teste-1:8000/ip -s -o /dev/null -w "%{http_code}\n"
 ```
+![policy-security-1](../assets/policy-security-1.png)
+
 - Verifica as políticas atuais
 ```
 kubectl get policies.authentication.istio.io --all-namespaces
@@ -44,5 +46,13 @@ istioctl manifest apply --set profile=demo \
   --set values.global.mtls.auto=true --force \
   --set values.global.mtls.enabled=false --force
 ```
+> Se tivesse dado certo o exemplo, a comunicação ocorreria com sucesso apenas nos casos abaixo em verde.
+![policy-security-2](../assets/policy-security-2.png)
 
-// 21:36
+> Necessário criar um Destination Rule para a comunicação Mutual TLS ocorra entre as aplicações com sidecars(*destination-rule-meshpolicy.yaml*).
+
+![policy-security-3](../assets/policy-security-3.png)
+
+> Para corrigir a comunicação com a aplicação que não possui sidecar foi necessário incluir outro Destination Rule (*destination-rule-meshpolicy-fix.yaml*)
+
+![policy-security-4](../assets/policy-security-4.png)
