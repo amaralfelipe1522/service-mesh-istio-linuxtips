@@ -56,3 +56,34 @@ istioctl manifest apply --set profile=demo \
 > Para corrigir a comunicação com a aplicação que não possui sidecar foi necessário incluir outro Destination Rule (*destination-rule-meshpolicy-fix.yaml*)
 
 ![policy-security-4](../assets/policy-security-4.png)
+
+## RBAC - Role-Based Access Control
+Fornece controle de acesso a nível de namespace, serviço ou método.
+
+> Exemplo de configuração de RBAC baseado em namespace usando o Bookinfo.
+- Verifica se o Mutual TLS está ativado para a namespace default
+```
+kubectl apply -f day-03/meshpolicy.yaml
+```
+- Implementa o arquivo de configuração RBAC (cluster-rbac-config.yaml)
+```
+kubectl apply -f day-03/cluster-rbac-config.yaml
+```
+- Executa o ServiceRole com o ServiceRoleBinding (namespace-policy.yaml)
+```
+kubectl apply -f day-03/namespace-policy.yaml
+```
+
+> Exemplo de configuração de RBAC baseado em serviços usando o Bookinfo.
+- Executa o ServiceRole com o ServiceRoleBinding para o Product Page (productpage-policy.yaml). Define que o serviço Product Page pode realizar requisições do tipo GET na namespace Default
+```
+kubectl apply -f day-03/roductpage-policy.yaml
+```
+- Executa o ServiceRole com o ServiceRoleBinding para o Details (details-reviews-policy.yaml). Libera regra de acesso para o serviço Product Page acessar o serviço de Details.
+```
+kubectl apply -f day-03/details-reviews-policy.yaml
+```
+- Executa o ServiceRole com o ServiceRoleBinding para o Ratings (ratings-policy.yaml). Libera regra de acesso para o serviço Details acessar o serviço de Ratings.
+```
+kubectl apply -f day-03/ratings-policy.yaml
+```
