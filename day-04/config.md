@@ -43,3 +43,13 @@ Editando manualmente o configmap - Exemplo 02:
 ```
 kubectl get configmaps istio -n istio-system -o yaml | sed 's/mode: ALLOW_ANY/mode: REGISTRY_ONLY/g' | kubectl replace -n istio-system -f -
 ```
+
+## ServiceEntry
+> Exemplo usando as aplicações Sleep e Http/bin. Arquivos: libera_httpbin.yaml e libera_httpbin_https.yaml
+- Configuração necessária quando existe a necessidade de meu container se comunicar com alguma aplicação externa ao meu Service Mesh e nas configurações estiver definido como REGISTRY_ONLY. Configuração de exemplo para HTTP e HTTPS.
+```
+kubectl exec -ti sleep-698cfc4445-tnfxq -c sleep -- curl -I http://httpbin.org
+```
+
+# RetryPolicy
+> Exemplo usando a aplicação HelloWorld, definindo 5 tentativas de conexão com 2 segundos de timeout. Arquivos: destination_rule_retry_policy.yaml e vs_retry_policy.yaml
